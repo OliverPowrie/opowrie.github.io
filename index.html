@@ -475,7 +475,7 @@ section {
 .carousel-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -1103,6 +1103,7 @@ footer {
               <div class="carousel-dots">
                 <div class="dot active" onclick="carouselGoTo(event, this, 0)"></div>
                 <div class="dot" onclick="carouselGoTo(event, this, 1)"></div>
+                <div class="dot" onclick="carouselGoTo(event, this, 2)"></div>
               </div>
               <div class="carousel-caption"></div>
             </div>
