@@ -108,7 +108,6 @@ nav::before {
   overflow: hidden;
 }
 
-/* Video background */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -321,14 +320,12 @@ section { position: relative; z-index: 1; }
 /* ═══ PROJECTS — CARD GRID ═══ */
 #projects { border-top: 1px solid var(--line); background: var(--off-black); }
 
-/* Outer wrapper: stacks card-rows and expand panels vertically */
 .project-grid {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
 }
 
-/* Each row holds exactly 3 cards side-by-side */
 .project-row-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -355,7 +352,6 @@ section { position: relative; z-index: 1; }
 
 .project-card:hover { background: var(--surface); }
 
-/* Thumbnail zone */
 .card-thumb {
   position: relative;
   width: 100%;
@@ -378,7 +374,6 @@ section { position: relative; z-index: 1; }
   opacity: 1;
 }
 
-/* Placeholder if no image */
 .thumb-placeholder {
   width: 100%;
   height: 100%;
@@ -393,21 +388,17 @@ section { position: relative; z-index: 1; }
   text-transform: uppercase;
 }
 
-/* Multi-image: show first, fade on hover */
 .card-thumb .thumb-layer {
   position: absolute;
   inset: 0;
   transition: opacity 0.5s var(--ease);
 }
 
-.card-thumb .thumb-layer:not(:first-child) {
-  opacity: 0;
-}
+.card-thumb .thumb-layer:not(:first-child) { opacity: 0; }
 
 .project-card:hover .card-thumb .thumb-layer:first-child { opacity: 0; }
 .project-card:hover .card-thumb .thumb-layer:nth-child(2) { opacity: 1; }
 
-/* Card body */
 .card-body {
   padding: 1.4rem 1.6rem 1.2rem;
   display: flex;
@@ -464,7 +455,7 @@ section { position: relative; z-index: 1; }
   background: var(--surface);
 }
 
-/* ── EXPANDED DETAIL PANEL (sits between card rows) ── */
+/* ── EXPANDED DETAIL PANEL ── */
 .card-expand-row {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
@@ -473,9 +464,7 @@ section { position: relative; z-index: 1; }
   transition: max-height 0.75s var(--ease);
 }
 
-.card-expand-row.open {
-  max-height: 900px;
-}
+.card-expand-row.open { max-height: 900px; }
 
 .card-expand-inner {
   padding: 3rem 3.5rem 3.5rem;
@@ -484,8 +473,6 @@ section { position: relative; z-index: 1; }
   gap: 4rem;
   align-items: start;
 }
-
-.card-detail-text {}
 
 .card-detail-text h3 {
   font-family: var(--f-display);
@@ -547,7 +534,7 @@ section { position: relative; z-index: 1; }
   border-radius: 2px;
 }
 
-/* ── CAROUSEL inside expand ── */
+/* ── CAROUSEL ── */
 .carousel {
   position: relative;
   background: var(--black);
@@ -857,16 +844,9 @@ footer {
 
 <!-- ═══ HERO ═══ -->
 <div class="hero" id="top">
-  <!-- 
-    ✏️ REPLACE THE src BELOW with your actual video file name.
-    Put the video file in the same folder as this HTML.
-    Recommended: MP4 format, ideally also a WebM version for better browser support.
-    Keep file size under ~15MB for fast loading (compress with HandBrake if needed).
-  -->
   <video class="hero-video" autoplay muted loop playsinline poster="hero.JPG">
     <source src="g_launch.mp4" type="video/mp4">
     <source src="hero.webm" type="video/webm">
-    <!-- Falls back to the poster image (hero.JPG) if video can't load -->
   </video>
 
   <div class="hero-content">
@@ -918,6 +898,10 @@ footer {
       </div>
       <div class="about-right reveal reveal-delay-1">
         <div class="stat-row">
+          <span class="stat-val">4 / 5</span>
+          <span class="stat-key">Years completed</span>
+        </div>
+        <div class="stat-row">
           <span class="stat-val">80+</span>
           <span class="stat-key">Team members led</span>
         </div>
@@ -926,12 +910,8 @@ footer {
           <span class="stat-key">Sub-teams coordinated</span>
         </div>
         <div class="stat-row">
-          <span class="stat-val">4 / 5</span>
-          <span class="stat-key">Years completed</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-val">100%</span>
-          <span class="stat-key">Requirement fulfilment, V&amp;V</span>
+          <span class="stat-val">Nov '26</span>
+          <span class="stat-key">Available for internship</span>
         </div>
       </div>
     </div>
@@ -951,41 +931,43 @@ footer {
       <!-- ══ ROW 1: cards 01, 02, 03 ══ -->
       <div class="project-row-cards">
 
-        <!-- PROJECT 1: TEST VEHICLE -->
+        <!-- PROJECT 1: AURC COMPETITION ROCKET -->
         <div class="project-card reveal" onclick="toggleCard(this, 'expand-01')">
+          <div class="card-thumb">
+            <div class="thumb-layer"><img src="aurc1.png" alt="AURC Competition Rocket"></div>
+            <div class="thumb-layer"><img src="aurc2.png" alt="AURC Avionics Integration"></div>
+          </div>
+          <div class="card-body">
+            <span class="card-num">01</span>
+            <span class="card-name">AURC Competition Rocket</span>
+            <span class="card-meta">ANU Rocketry · 2025</span>
+          </div>
+          <div class="card-arrow">+</div>
+        </div>
+
+        <!-- PROJECT 2: TEST VEHICLE -->
+        <div class="project-card reveal reveal-delay-1" onclick="toggleCard(this, 'expand-02')">
           <div class="card-thumb">
             <div class="thumb-layer"><img src="solstice1.png" alt="Final vehicle build"></div>
             <div class="thumb-layer"><img src="solstice3.png" alt="Dual deployment instron testing"></div>
           </div>
           <div class="card-body">
-            <span class="card-num">01</span>
+            <span class="card-num">02</span>
             <span class="card-name">Full-Scale Rocket Test Vehicle</span>
             <span class="card-meta">ANU Rocketry · 2025</span>
           </div>
           <div class="card-arrow">+</div>
         </div>
 
-        <!-- PROJECT 2: CESTOL -->
-        <div class="project-card reveal reveal-delay-1" onclick="toggleCard(this, 'expand-02')">
-          <div class="card-thumb">
-            <div class="thumb-placeholder">Add image</div>
-          </div>
-          <div class="card-body">
-            <span class="card-num">02</span>
-            <span class="card-name">CESTOL Landing Gear</span>
-            <span class="card-meta">Coursework · 2024</span>
-          </div>
-          <div class="card-arrow">+</div>
-        </div>
-
-        <!-- PROJECT 3: GLIDER -->
+        <!-- PROJECT 3: CESTOL -->
         <div class="project-card reveal reveal-delay-2" onclick="toggleCard(this, 'expand-03')">
           <div class="card-thumb">
-            <div class="thumb-placeholder">Add image</div>
+            <div class="thumb-layer"><img src="landing1.png" alt="CESTOL Landing Gear"></div>
+            <div class="thumb-layer"><img src="landing2.png" alt="CESTOL Landing Gear Detail"></div>
           </div>
           <div class="card-body">
             <span class="card-num">03</span>
-            <span class="card-name">Optimised Lightweight Glider</span>
+            <span class="card-name">CESTOL Landing Gear</span>
             <span class="card-meta">Coursework · 2024</span>
           </div>
           <div class="card-arrow">+</div>
@@ -994,20 +976,71 @@ footer {
       </div><!-- /row 1 cards -->
 
       <!-- Expand panels for row 1 -->
+
+      <!-- EXPAND 01: AURC -->
       <div class="card-expand-row" id="expand-01">
+        <div class="card-expand-inner">
+          <div class="card-detail-text">
+            <h3>AURC Competition Rocket</h3>
+            <p>Serving as Programme Manager and Avionics Team Lead for ANU Rocketry's entry in the Australian Universities Rocket Competition (AURC) — competing in the 10,000 ft COTS category. End-to-end ownership of a live competition programme, from concept through to launch day.</p>
+            <p>Applied a structured systems engineering model throughout: running formal requirements reviews, maintaining a live risk register, managing subsystem interface control, and tracking milestones against a competition-driven schedule. Concurrently leading the avionics team, overseeing flight computer integration, sensor selection, and real-time telemetry architecture.</p>
+            <ul class="outcomes-list">
+              <li>Full programme management — schedule, budget, risk register</li>
+              <li>Formal requirements reviews and systems engineering model</li>
+              <li>Dual role: Programme Manager + Avionics Team Lead</li>
+              <li>Subsystem interface control documentation (ICDs)</li>
+              <li>Flight computer integration and telemetry architecture</li>
+              <li>Targeting 10,000 ft COTS category at AURC 2025</li>
+            </ul>
+            <div class="tools-row">
+              <span class="tool-chip">Programme Mgmt</span>
+              <span class="tool-chip">Systems Eng.</span>
+              <span class="tool-chip">Risk Register</span>
+              <span class="tool-chip">Requirements Reviews</span>
+              <span class="tool-chip">Avionics</span>
+              <span class="tool-chip">Telemetry</span>
+              <span class="tool-chip">ICDs</span>
+            </div>
+          </div>
+          <div class="carousel" data-count="4">
+            <div class="carousel-track">
+              <div class="carousel-slide" data-caption="Competition rocket overview"><img src="aurc1.png" alt="AURC competition rocket"></div>
+              <div class="carousel-slide" data-caption="Avionics integration"><img src="aurc2.png" alt="Avionics integration"></div>
+              <div class="carousel-slide" data-caption="Systems documentation"><img src="aurc3.png" alt="Systems documentation"></div>
+              <div class="carousel-slide" data-caption="Pre-launch preparation"><img src="aurc4.png" alt="Pre-launch preparation"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
+            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,3)"></div>
+            </div>
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPAND 02: TEST VEHICLE -->
+      <div class="card-expand-row" id="expand-02">
         <div class="card-expand-inner">
           <div class="card-detail-text">
             <h3>Full-Scale Rocket Test Vehicle</h3>
             <p>Led end-to-end systems engineering for a full-scale rocket test vehicle — the primary de-risking platform for ANU Rocketry's liquid rocket programme. Responsible for defining requirements, managing subsystem interfaces, and coordinating integration across multiple teams.</p>
-            <p>Produced comprehensive interface control documents (ICDs) enabling seamless knowledge transfer across the team's rotating membership.</p>
+            <p>Conducted ANSYS FEA on the internal airframe structure to validate load paths and structural margins under flight and recovery loading conditions. Recovery system verification was performed on an Instron load frame, providing empirical data to close the V&amp;V cycle against defined acceptance criteria. Produced comprehensive interface control documents (ICDs) enabling seamless knowledge transfer across the team's rotating membership.</p>
             <ul class="outcomes-list">
               <li>Full systems engineering lifecycle ownership</li>
+              <li>ANSYS FEA on internal airframe — load path and margin validation</li>
+              <li>Instron testing of recovery system as part of formal V&amp;V</li>
               <li>Multi-team integration coordination</li>
               <li>Comprehensive ICD documentation suite</li>
-              <li>De-risking for liquid rocket programme</li>
+              <li>De-risking platform for liquid rocket programme</li>
             </ul>
             <div class="tools-row">
               <span class="tool-chip">Systems Eng.</span>
+              <span class="tool-chip">ANSYS FEA</span>
+              <span class="tool-chip">Instron</span>
               <span class="tool-chip">Requirements</span>
               <span class="tool-chip">Interface Mgmt</span>
               <span class="tool-chip">Risk Management</span>
@@ -1026,13 +1059,22 @@ footer {
             </div>
             <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
             <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active" onclick="carouselGoTo(event,this,0)"></div><div class="dot" onclick="carouselGoTo(event,this,1)"></div><div class="dot" onclick="carouselGoTo(event,this,2)"></div><div class="dot" onclick="carouselGoTo(event,this,3)"></div><div class="dot" onclick="carouselGoTo(event,this,4)"></div><div class="dot" onclick="carouselGoTo(event,this,5)"></div><div class="dot" onclick="carouselGoTo(event,this,6)"></div></div>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,3)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,4)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,5)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,6)"></div>
+            </div>
             <div class="carousel-caption"></div>
           </div>
         </div>
       </div>
 
-      <div class="card-expand-row" id="expand-02">
+      <!-- EXPAND 03: CESTOL -->
+      <div class="card-expand-row" id="expand-03">
         <div class="card-expand-inner">
           <div class="card-detail-text">
             <h3>CESTOL Landing Gear</h3>
@@ -1052,46 +1094,21 @@ footer {
               <span class="tool-chip">Structural Analysis</span>
             </div>
           </div>
-          <div class="carousel" data-count="3">
+          <div class="carousel" data-count="4">
             <div class="carousel-track">
-              <div class="carousel-slide" data-caption="CAD model"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">CAD render</div></div></div>
-              <div class="carousel-slide" data-caption="ANSYS FEA results"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">ANSYS FEA output</div></div></div>
-              <div class="carousel-slide" data-caption="Instron testing"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Instron test setup</div></div></div>
+              <div class="carousel-slide" data-caption="Landing gear assembly"><img src="landing1.png" alt="Landing gear assembly"></div>
+              <div class="carousel-slide" data-caption="Detail view"><img src="landing2.png" alt="Landing gear detail"></div>
+              <div class="carousel-slide" data-caption="FEA analysis"><img src="landing3.png" alt="FEA analysis"></div>
+              <div class="carousel-slide" data-caption="Instron testing"><img src="landing4.png" alt="Instron testing"></div>
             </div>
             <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
             <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active" onclick="carouselGoTo(event,this,0)"></div><div class="dot" onclick="carouselGoTo(event,this,1)"></div><div class="dot" onclick="carouselGoTo(event,this,2)"></div></div>
-            <div class="carousel-caption"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-expand-row" id="expand-03">
-        <div class="card-expand-inner">
-          <div class="card-detail-text">
-            <h3>Optimised Lightweight Glider</h3>
-            <p>Designed and built a glider with a 3D-printed, weight-optimised aerofoil using a bird-bone internal lattice structure — balancing aerodynamic performance with structural efficiency across a 1m wingspan.</p>
-            <p>Launched from approximately 2m altitude, the glider flew 7m — demonstrating effective lift-to-drag optimisation.</p>
-            <ul class="outcomes-list">
-              <li>1m wingspan</li>
-              <li>7m flight distance from ~2m launch altitude</li>
-              <li>Bird-bone internal lattice aerofoil structure</li>
-            </ul>
-            <div class="tools-row">
-              <span class="tool-chip">3D Printing</span>
-              <span class="tool-chip">Aerofoil Design</span>
-              <span class="tool-chip">CAD</span>
-              <span class="tool-chip">Structural Optimisation</span>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,3)"></div>
             </div>
-          </div>
-          <div class="carousel" data-count="2">
-            <div class="carousel-track">
-              <div class="carousel-slide" data-caption="Completed glider"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Finished glider</div></div></div>
-              <div class="carousel-slide" data-caption="Aerofoil lattice structure"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Lattice interior / CAD</div></div></div>
-            </div>
-            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
-            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active" onclick="carouselGoTo(event,this,0)"></div><div class="dot" onclick="carouselGoTo(event,this,1)"></div></div>
             <div class="carousel-caption"></div>
           </div>
         </div>
@@ -1100,42 +1117,44 @@ footer {
       <!-- ══ ROW 2: cards 04, 05, 06 ══ -->
       <div class="project-row-cards">
 
-        <!-- PROJECT 4: CUBESAT -->
+        <!-- PROJECT 4: RECRUIT ROADMAP -->
         <div class="project-card reveal" onclick="toggleCard(this, 'expand-04')">
+          <div class="card-thumb">
+            <div class="thumb-layer"><img src="recruit1.png" alt="Recruit training session"></div>
+            <div class="thumb-layer"><img src="recruit2.png" alt="Recruit CAD workshop"></div>
+          </div>
+          <div class="card-body">
+            <span class="card-num">04</span>
+            <span class="card-name">Recruit Engineering Roadmap</span>
+            <span class="card-meta">ANU Rocketry · Ongoing</span>
+          </div>
+          <div class="card-arrow">+</div>
+        </div>
+
+        <!-- PROJECT 5: CUBESAT -->
+        <div class="project-card reveal reveal-delay-1" onclick="toggleCard(this, 'expand-05')">
           <div class="card-thumb">
             <div class="thumb-layer"><img src="cubesat2.png" alt="CubeSat frame CAD"></div>
             <div class="thumb-layer"><img src="cubesat1.JPG" alt="CubeSat on-site integration"></div>
           </div>
           <div class="card-body">
-            <span class="card-num">04</span>
+            <span class="card-num">05</span>
             <span class="card-name">CubeSat Payload Frame</span>
             <span class="card-meta">ANU Rocketry · 2024</span>
           </div>
           <div class="card-arrow">+</div>
         </div>
 
-        <!-- PROJECT 5: CPU -->
-        <div class="project-card reveal reveal-delay-1" onclick="toggleCard(this, 'expand-05')">
-          <div class="card-thumb">
-            <div class="thumb-placeholder">Add image</div>
-          </div>
-          <div class="card-body">
-            <span class="card-num">05</span>
-            <span class="card-name">CPU Design &amp; Embedded Systems</span>
-            <span class="card-meta">Coursework · 2023–24</span>
-          </div>
-          <div class="card-arrow">+</div>
-        </div>
-
-        <!-- PROJECT 6: CFD -->
+        <!-- PROJECT 6: GLIDER -->
         <div class="project-card reveal reveal-delay-2" onclick="toggleCard(this, 'expand-06')">
           <div class="card-thumb">
-            <div class="thumb-placeholder">Add image</div>
+            <div class="thumb-layer"><img src="glider1.png" alt="Completed glider"></div>
+            <div class="thumb-layer"><img src="glider2.png" alt="Glider aerofoil lattice structure"></div>
           </div>
           <div class="card-body">
             <span class="card-num">06</span>
-            <span class="card-name">CFD Shock &amp; Bow Wave Simulation</span>
-            <span class="card-meta">Coursework · 2023–24</span>
+            <span class="card-name">Optimised Lightweight Glider</span>
+            <span class="card-meta">Coursework · 2024</span>
           </div>
           <div class="card-arrow">+</div>
         </div>
@@ -1143,7 +1162,51 @@ footer {
       </div><!-- /row 2 cards -->
 
       <!-- Expand panels for row 2 -->
+
+      <!-- EXPAND 04: RECRUIT ROADMAP -->
       <div class="card-expand-row" id="expand-04">
+        <div class="card-expand-inner">
+          <div class="card-detail-text">
+            <h3>Recruit Engineering Roadmap</h3>
+            <p>Designed and deliver a structured engineering onboarding programme for new ANU Rocketry recruits each semester. Recognising that knowledge continuity is one of the most significant risks in a student organisation with rotating membership, I built a repeatable curriculum that brings new members from zero to flight-ready contributor.</p>
+            <p>The programme covers CAD fundamentals through to advanced modelling, FEA methodology and simulation workflows, introduction to systems engineering principles, and hands-on manufacturing and integration techniques. By investing in team capability at the foundation level, the programme directly enables higher-quality output across all sub-teams and reduces rework caused by gaps in engineering process knowledge.</p>
+            <ul class="outcomes-list">
+              <li>Structured curriculum delivered every semester to new recruits</li>
+              <li>CAD training — from fundamentals to advanced modelling</li>
+              <li>FEA methodology — simulation setup, validation, and interpretation</li>
+              <li>Systems engineering principles — requirements, interfaces, and risk</li>
+              <li>Manufacturing and integration hands-on workshops</li>
+              <li>Directly addresses knowledge continuity risk in rotating teams</li>
+            </ul>
+            <div class="tools-row">
+              <span class="tool-chip">Mentoring</span>
+              <span class="tool-chip">CAD Training</span>
+              <span class="tool-chip">FEA Instruction</span>
+              <span class="tool-chip">Systems Eng.</span>
+              <span class="tool-chip">Manufacturing</span>
+              <span class="tool-chip">Knowledge Mgmt</span>
+            </div>
+          </div>
+          <div class="carousel" data-count="3">
+            <div class="carousel-track">
+              <div class="carousel-slide" data-caption="Recruit training session"><img src="recruit1.png" alt="Recruit training session"></div>
+              <div class="carousel-slide" data-caption="CAD workshop"><img src="recruit2.png" alt="CAD workshop"></div>
+              <div class="carousel-slide" data-caption="Integration session"><img src="recruit3.png" alt="Integration session"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
+            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+            </div>
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPAND 05: CUBESAT -->
+      <div class="card-expand-row" id="expand-05">
         <div class="card-expand-inner">
           <div class="card-detail-text">
             <h3>CubeSat Payload Frame</h3>
@@ -1169,67 +1232,215 @@ footer {
             </div>
             <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
             <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active" onclick="carouselGoTo(event,this,0)"></div><div class="dot" onclick="carouselGoTo(event,this,1)"></div><div class="dot" onclick="carouselGoTo(event,this,2)"></div></div>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+            </div>
             <div class="carousel-caption"></div>
           </div>
         </div>
       </div>
 
-      <div class="card-expand-row" id="expand-05">
-        <div class="card-expand-inner">
-          <div class="card-detail-text">
-            <h3>CPU Design &amp; Embedded Systems</h3>
-            <p>Designed a custom CPU architecture from first principles, then programmed a BBC micro:bit in ARM assembly and C — spanning digital logic design through to embedded firmware.</p>
-            <ul class="outcomes-list">
-              <li>Custom CPU architecture designed from scratch</li>
-              <li>ARM assembly + C firmware implemented</li>
-              <li>Hardware-software co-design demonstrated</li>
-            </ul>
-            <div class="tools-row">
-              <span class="tool-chip">ARM Assembly</span>
-              <span class="tool-chip">C</span>
-              <span class="tool-chip">Digital Logic</span>
-              <span class="tool-chip">Embedded Systems</span>
-            </div>
-          </div>
-          <div class="carousel" data-count="1">
-            <div class="carousel-track">
-              <div class="carousel-slide" data-caption="CPU schematic / micro:bit"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Schematic or micro:bit setup</div></div></div>
-            </div>
-            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
-            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active"></div></div>
-            <div class="carousel-caption"></div>
-          </div>
-        </div>
-      </div>
-
+      <!-- EXPAND 06: GLIDER -->
       <div class="card-expand-row" id="expand-06">
         <div class="card-expand-inner">
           <div class="card-detail-text">
-            <h3>CFD Shock &amp; Bow Wave Simulation</h3>
-            <p>Simulated bow and shock wave behaviour under ideal conditions at Mach 3, developing proficiency in CFD for supersonic and high-speed flow regimes.</p>
-            <p>Work covered geometry setup, mesh generation, solver configuration, and post-processing of supersonic flow phenomena.</p>
+            <h3>Optimised Lightweight Glider</h3>
+            <p>Designed and built a glider with a 3D-printed, weight-optimised aerofoil using a bird-bone internal lattice structure — balancing aerodynamic performance with structural efficiency across a 1m wingspan.</p>
+            <p>Launched from approximately 2m altitude, the glider flew 7m — demonstrating effective lift-to-drag optimisation.</p>
             <ul class="outcomes-list">
-              <li>Mach 3 simulation under ideal gas conditions</li>
-              <li>Bow and shock wave characterisation</li>
-              <li>Full mesh generation and post-processing pipeline</li>
+              <li>1m wingspan</li>
+              <li>7m flight distance from ~2m launch altitude</li>
+              <li>Bird-bone internal lattice aerofoil structure</li>
             </ul>
             <div class="tools-row">
-              <span class="tool-chip">ANSYS CFD</span>
-              <span class="tool-chip">Mesh Generation</span>
-              <span class="tool-chip">Flow Analysis</span>
-              <span class="tool-chip">Post-processing</span>
+              <span class="tool-chip">3D Printing</span>
+              <span class="tool-chip">Aerofoil Design</span>
+              <span class="tool-chip">CAD</span>
+              <span class="tool-chip">Structural Optimisation</span>
+            </div>
+          </div>
+          <div class="carousel" data-count="3">
+            <div class="carousel-track">
+              <div class="carousel-slide" data-caption="Completed glider"><img src="glider1.png" alt="Completed glider"></div>
+              <div class="carousel-slide" data-caption="Aerofoil lattice structure"><img src="glider2.png" alt="Aerofoil lattice structure"></div>
+              <div class="carousel-slide" data-caption="Glider in flight"><img src="glider3.png" alt="Glider in flight"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
+            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+            </div>
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ROW 3: cards 07, 08, 09 ══ -->
+      <div class="project-row-cards">
+
+        <!-- PROJECT 7: ACTIVE DRAG SYSTEM -->
+        <div class="project-card reveal" onclick="toggleCard(this, 'expand-07')">
+          <div class="card-thumb">
+            <div class="thumb-layer"><img src="asd1.png" alt="Active drag system mechanism"></div>
+            <div class="thumb-layer"><img src="asd2.png" alt="Active drag system CAD"></div>
+          </div>
+          <div class="card-body">
+            <span class="card-num">07</span>
+            <span class="card-name">Active Drag System</span>
+            <span class="card-meta">ANU Rocketry · 2024–25</span>
+          </div>
+          <div class="card-arrow">+</div>
+        </div>
+
+        <!-- PROJECT 8: CFD -->
+        <div class="project-card reveal reveal-delay-1" onclick="toggleCard(this, 'expand-08')">
+          <div class="card-thumb">
+            <div class="thumb-layer"><img src="cfd1.png" alt="CFD fin angle simulation"></div>
+            <div class="thumb-layer"><img src="cfd2.png" alt="CFD flow field detail"></div>
+          </div>
+          <div class="card-body">
+            <span class="card-num">08</span>
+            <span class="card-name">CFD Fin Angle Optimisation</span>
+            <span class="card-meta">Coursework · 2023–24</span>
+          </div>
+          <div class="card-arrow">+</div>
+        </div>
+
+        <!-- PROJECT 9: SPEAKER -->
+        <div class="project-card reveal reveal-delay-2" onclick="toggleCard(this, 'expand-09')">
+          <div class="card-thumb">
+            <div class="thumb-layer"><img src="speaker1.png" alt="3-way speaker system"></div>
+            <div class="thumb-layer"><img src="speaker2.png" alt="Speaker crossover design"></div>
+          </div>
+          <div class="card-body">
+            <span class="card-num">09</span>
+            <span class="card-name">Custom 3-Way Speaker System</span>
+            <span class="card-meta">Personal Project · 2025–Present</span>
+          </div>
+          <div class="card-arrow">+</div>
+        </div>
+
+      </div><!-- /row 3 cards -->
+
+      <!-- Expand panels for row 3 -->
+
+      <!-- EXPAND 07: ACTIVE DRAG SYSTEM -->
+      <div class="card-expand-row" id="expand-07">
+        <div class="card-expand-inner">
+          <div class="card-detail-text">
+            <h3>Active Drag System</h3>
+            <p>Designed a mechanical active drag system for integration into a high-power rocket, enabling precise altitude control by modulating aerodynamic drag in real time during the coast phase of flight. The system deploys a set of drag surfaces at variable angles in response to onboard altitude predictions, allowing the vehicle to bleed energy and hit a target apogee with high precision — without the use of additional propellant.</p>
+            <p>The design required careful consideration of actuator authority, deployment timing, structural loading under high dynamic pressure, and integration within tight volume constraints inside the airframe. The system represents a significant step in ANU Rocketry's capability to achieve precision altitude targeting for competition.</p>
+            <ul class="outcomes-list">
+              <li>Mechanical drag modulation system for precision altitude control</li>
+              <li>Variable-angle drag surface deployment mechanism</li>
+              <li>Structural design for high dynamic pressure flight loading</li>
+              <li>Tight volumetric integration within rocket airframe</li>
+              <li>Supports competition altitude targeting requirements</li>
+            </ul>
+            <div class="tools-row">
+              <span class="tool-chip">Mechanical Design</span>
+              <span class="tool-chip">CAD</span>
+              <span class="tool-chip">Actuation Systems</span>
+              <span class="tool-chip">Structural Analysis</span>
+              <span class="tool-chip">Systems Integration</span>
             </div>
           </div>
           <div class="carousel" data-count="2">
             <div class="carousel-track">
-              <div class="carousel-slide" data-caption="Shock wave visualisation"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Pressure / Mach contour</div></div></div>
-              <div class="carousel-slide" data-caption="Mesh detail"><div class="slide-placeholder"><div class="slide-placeholder-icon">⊕</div><div class="slide-placeholder-label">Mesh / velocity field</div></div></div>
+              <div class="carousel-slide" data-caption="Active drag mechanism"><img src="asd1.png" alt="Active drag mechanism"></div>
+              <div class="carousel-slide" data-caption="CAD detail"><img src="asd2.png" alt="CAD detail"></div>
             </div>
             <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
             <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
-            <div class="carousel-dots"><div class="dot active" onclick="carouselGoTo(event,this,0)"></div><div class="dot" onclick="carouselGoTo(event,this,1)"></div></div>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+            </div>
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPAND 08: CFD -->
+      <div class="card-expand-row" id="expand-08">
+        <div class="card-expand-inner">
+          <div class="card-detail-text">
+            <h3>CFD Fin Angle Optimisation</h3>
+            <p>Investigated the aerodynamic effect of varying rocket fin cant angle on shock structure and flow behaviour in the Mach 3 flight regime, using ANSYS CFD. The study characterised how changes in fin angle alter the bow shock geometry and associated wave drag, providing quantitative data to inform fin design trade-offs.</p>
+            <p>Work encompassed full-geometry setup, structured mesh generation, solver configuration for compressible supersonic flow, and systematic post-processing across multiple angle-of-attack cases — developing a reusable simulation pipeline applicable to future rocket aerodynamics work.</p>
+            <ul class="outcomes-list">
+              <li>Parametric fin angle sweep at Mach 3</li>
+              <li>Bow shock geometry and wave drag characterisation</li>
+              <li>Full mesh generation and compressible solver pipeline</li>
+              <li>Post-processing across multiple simulation cases</li>
+              <li>Reusable workflow for future aerodynamics analysis</li>
+            </ul>
+            <div class="tools-row">
+              <span class="tool-chip">ANSYS CFD</span>
+              <span class="tool-chip">Mesh Generation</span>
+              <span class="tool-chip">Supersonic Flow</span>
+              <span class="tool-chip">Parametric Study</span>
+              <span class="tool-chip">Post-processing</span>
+            </div>
+          </div>
+          <div class="carousel" data-count="4">
+            <div class="carousel-track">
+              <div class="carousel-slide" data-caption="Mach contour — baseline angle"><img src="cfd1.png" alt="CFD Mach contour"></div>
+              <div class="carousel-slide" data-caption="Pressure field — varied angle"><img src="cfd2.png" alt="CFD pressure field"></div>
+              <div class="carousel-slide" data-caption="Shock structure comparison"><img src="cfd3.png" alt="Shock structure comparison"></div>
+              <div class="carousel-slide" data-caption="Mesh detail"><img src="cfd4.png" alt="Mesh detail"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
+            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,2)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,3)"></div>
+            </div>
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPAND 09: SPEAKER -->
+      <div class="card-expand-row" id="expand-09">
+        <div class="card-expand-inner">
+          <div class="card-detail-text">
+            <h3>Custom 3-Way Speaker System</h3>
+            <p>Currently designing and building a full 3-way loudspeaker system entirely from scratch — spanning acoustic enclosure design, driver selection and characterisation, and passive crossover network engineering. The project applies the same rigorous first-principles methodology I use in aerospace: defining target frequency response, modelling enclosure acoustics, and iterating on crossover filter topology to achieve a smooth, flat handover between the woofer, midrange, and tweeter drivers.</p>
+            <p>The enclosure is being constructed to specific internal volume and bracing requirements derived from driver Thiele-Small parameters. The passive crossover is designed using LC filter networks, with component values selected to achieve the target crossover frequencies and impedance compensation across the full bandwidth.</p>
+            <ul class="outcomes-list">
+              <li>Full 3-way system — woofer, midrange, and tweeter</li>
+              <li>Acoustic enclosure designed from Thiele-Small parameters</li>
+              <li>Passive LC crossover network engineering</li>
+              <li>Driver selection and frequency response characterisation</li>
+              <li>Enclosure construction — bracing, damping, and joinery</li>
+            </ul>
+            <div class="tools-row">
+              <span class="tool-chip">Acoustic Design</span>
+              <span class="tool-chip">Crossover Networks</span>
+              <span class="tool-chip">CAD</span>
+              <span class="tool-chip">Electronics</span>
+              <span class="tool-chip">Manufacturing</span>
+            </div>
+          </div>
+          <div class="carousel" data-count="2">
+            <div class="carousel-track">
+              <div class="carousel-slide" data-caption="Speaker system overview"><img src="speaker1.png" alt="Speaker system overview"></div>
+              <div class="carousel-slide" data-caption="Crossover network detail"><img src="speaker2.png" alt="Crossover network detail"></div>
+            </div>
+            <button class="carousel-btn prev" onclick="carouselPrev(event,this)">&#8592;</button>
+            <button class="carousel-btn next" onclick="carouselNext(event,this)">&#8594;</button>
+            <div class="carousel-dots">
+              <div class="dot active" onclick="carouselGoTo(event,this,0)"></div>
+              <div class="dot" onclick="carouselGoTo(event,this,1)"></div>
+            </div>
             <div class="carousel-caption"></div>
           </div>
         </div>
@@ -1252,8 +1463,11 @@ footer {
         <div class="skill-items">
           <div class="skill-item">ANSYS FEA <span class="prof-mark">Proficient</span></div>
           <div class="skill-item">ANSYS CFD <span class="prof-mark">Proficient</span></div>
+          <div class="skill-item">Structural Analysis</div>
+          <div class="skill-item">Thiele-Small Modelling</div>
           <div class="skill-item">MATLAB</div>
           <div class="skill-item">Python</div>
+          <div class="skill-item">Java</div>
         </div>
       </div>
       <div class="skill-col reveal reveal-delay-1">
@@ -1265,6 +1479,8 @@ footer {
           <div class="skill-item">Composites</div>
           <div class="skill-item">3D Printing</div>
           <div class="skill-item">Machining</div>
+          <div class="skill-item">Electronics &amp; PCB</div>
+          <div class="skill-item">Passive Crossover Design</div>
         </div>
       </div>
       <div class="skill-col reveal reveal-delay-2">
@@ -1276,6 +1492,10 @@ footer {
           <div class="skill-item">Milestone Tracking</div>
           <div class="skill-item">Technical Documentation</div>
           <div class="skill-item">Stakeholder Coordination</div>
+          <div class="skill-item">Funding Proposals</div>
+          <div class="skill-item">Mentoring &amp; Onboarding</div>
+          <div class="skill-item">ARM Assembly / C</div>
+          <div class="skill-item">Embedded Systems</div>
         </div>
       </div>
     </div>
@@ -1332,18 +1552,15 @@ function toggleCard(card, expandId) {
   const expand = document.getElementById(expandId);
   const isOpen = card.classList.contains('open');
 
-  // Close whatever is currently open
   if (openCard) {
     openCard.classList.remove('open');
     openExpand.classList.remove('open');
   }
 
   if (isOpen) {
-    // Was open — just close it
     openCard = null;
     openExpand = null;
   } else {
-    // Open this one
     card.classList.add('open');
     expand.classList.add('open');
     openCard = card;
